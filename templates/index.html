@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <h1>Liste des utilisateurs</h1>
+    <ul>
+        {% for user in utilisateurs %}
+            <li>{{ user.nom }} - {{ user.email }}</li>
+        {% else %}
+            <li>Aucun utilisateur trouvé.</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Listes des categorie</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Categorie</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cts in categorie %}
+            <tr>
+                <td>{{nom_categorie}}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td>Aucune catégorie trouvée.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+</body>
+
+</html>
